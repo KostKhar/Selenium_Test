@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class OrderPage {
-    public static By orderButton = By.xpath(".//div[@class='Header_Nav__AGCXC']/button[@class='Button_Button__ra12g']");
     private final WebDriver driver;
 
 
@@ -94,8 +93,7 @@ public class OrderPage {
 
     public boolean actualOrder() {
         new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(orderStatusButton));
-        boolean actual = driver.findElement(orderStatusButton).getText().equals("Посмотреть статус");
-        return actual;
+        return driver.findElement(orderStatusButton).getText().equals("Посмотреть статус");
     }
 
 
