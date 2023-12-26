@@ -50,6 +50,7 @@ public class OrderPageTest {
         HomePage objHomePage = new HomePage(driver);
         objHomePage.clickOrderMiddleButton();
         OrderPage objOrderPage = new OrderPage(driver);
+        objOrderPage.waitField();
         objOrderPage.makeOrderOnePageTverskay("Илья", "Сидоров", "г. Домодедово, Азовская, д. 23, кв 40", "+79182566989");
         objOrderPage.makeOrderTwoPageSevenDay("24.12.2023", "");
         assertTrue(objOrderPage.actualOrder());
