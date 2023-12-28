@@ -7,7 +7,6 @@ import static org.junit.Assert.assertTrue;
 
 public class OrderPageTest extends BaseTest {
 
-
     @Test
     public void checkOrderByUpButton() {
         HomePage objHomePage = new HomePage(driver);

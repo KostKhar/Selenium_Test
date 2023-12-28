@@ -16,7 +16,8 @@ public class HomePage {
     private final By orderButton = By.xpath(".//div[@class='Header_Nav__AGCXC']/button[@class='Button_Button__ra12g']");
 
     //кнопка Заказать в середине
-    private final By orderMiddleButton = By.xpath("//*[@id=\"root\"]/div/div/div[4]/div[2]/div[5]/button");
+    private final By orderMiddleButton = By.xpath(".//div[5]/button");
+
     //Сколько это стоит? И как оплатить?
     private final By howCost = By.xpath(".//*[@id=\"accordion__heading-0\"]");
     //Сутки 400 рублей. Оплата курьеру - наличными или картой.
@@ -64,34 +65,34 @@ public class HomePage {
     }
 
     public void clickOrderMiddleButton() {
-        new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(orderButton));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(orderMiddleButton));
+        new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(orderButton));
         driver.findElement(orderMiddleButton).click();
     }
 
-    public String returnButtonMessage(int index, int index1) {
-        List<By> elements = new ArrayList<By>();
-        elements.add(0, howCost);
-        elements.add(1, itCost);
-        elements.add(2, howManyToOne);
-        elements.add(3, oneOrderOneScooter);
-        elements.add(4, orderTimeRange);
-        elements.add(5, orderTimeRangeAbout);
-        elements.add(6, scooterWhenIGet);
-        elements.add(7, scooterIGet);
-        elements.add(8, scooterWhenITake);
-        elements.add(9, scooterITake);
-        elements.add(10, scooterHowCharge);
-        elements.add(11, scooterCharge);
-        elements.add(12, orderCancel);
-        elements.add(13, orderCancelConditions);
-        elements.add(14, liveBehind);
-        elements.add(15, liveInOblast);
+    public String returnButtonMessage(int questionIndex, int answerIndex) {
+        List<By> questions = new ArrayList<>();
+        List<By> answers = new ArrayList<>();
+        questions.add(0, howCost);
+        answers.add(0, itCost);
+        questions.add(1, howManyToOne);
+        answers.add(1, oneOrderOneScooter);
+        questions.add(2, orderTimeRange);
+        answers.add(2, orderTimeRangeAbout);
+        questions.add(3, scooterWhenIGet);
+        answers.add(3, scooterIGet);
+        questions.add(4, scooterWhenITake);
+        answers.add(4, scooterITake);
+        questions.add(5, scooterHowCharge);
+        answers.add(5, scooterCharge);
+        questions.add(6, orderCancel);
+        answers.add(6, orderCancelConditions);
+        questions.add(7, liveBehind);
+        answers.add(7, liveInOblast);
         new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(orderButton));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(elements.get(index)));
-        driver.findElement(elements.get(index)).click();
-        String actual = driver.findElement(elements.get(index1)).getText();
-        return actual;
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(questions.get(questionIndex)));
+        driver.findElement(questions.get(questionIndex)).click();
+        return driver.findElement(answers.get(answerIndex)).getText();
     }
 
 }

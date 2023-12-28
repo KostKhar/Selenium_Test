@@ -23,41 +23,41 @@ public class OrderPage {
 
 
     //поле Станция метро
-    private final By station = By.xpath(".//*[@id=\"root\"]/div/div[2]/div[2]/div[4]/div/div[1]/input");
+    private final By station = By.className("select-search__input");
 
 
     //Тверская
-    private final By tverskayStation = By.xpath(".//*[@id=\"root\"]/div/div[2]/div[2]/div[4]/div/div[2]/ul/li[31]");
+    private final By tverskayStation = By.xpath(".//button[@value='31']");
 
 
     //Сокольники
-    private final By socolnikiStation = By.xpath(".//*[@id=\"root\"]/div/div[2]/div[2]/div[4]/div/div[2]/ul/li[4]");
+    private final By socolnikiStation = By.xpath(".//button[@value='4']");
 
 
     //Телефон: на него позвонит курьер
-    private final By phoneNumberField = By.xpath(".//*[@id=\"root\"]/div/div[2]/div[2]/div[5]/input");
+    private final By phoneNumberField = By.xpath(".//input[@placeholder='* Телефон: на него позвонит курьер']");
 
 
     //Далее
-    private final By next = By.xpath(".//*[@id=\"root\"]/div/div[2]/div[3]/button");
+    private final By next = By.className("Button_Middle__1CSJM");
 
 
     //Когда привезти самокат
-    private final By dateField = By.xpath(".//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div[1]/div/input");
+    private final By dateField = By.xpath(".//input[@placeholder='* Когда привезти самокат']");
     //24.12.2023
     private final By twentyFourDecember = By.xpath(".//div[@class='react-datepicker__day react-datepicker__day--024 react-datepicker__day--selected react-datepicker__day--weekend']");
 
 
     //Срок аренды
-    private final By termField = By.xpath(".//*[@id=\"root\"]/div/div[2]/div[2]/div[2]/div[1]/div[1]");
+    private final By termField = By.className("Dropdown-placeholder");
 
 
     //сутки
-    private final By oneDay = By.xpath(".//*[@id=\"root\"]/div/div[2]/div[2]/div[2]/div[2]/div[1]");
+    private final By oneDay = By.xpath(".//div[@class='Dropdown-option' and text()='сутки']");
 
 
     //шестеро суток
-    private final By sevenDay = By.xpath(".//*[@id=\"root\"]/div/div[2]/div[2]/div[2]/div[2]/div[7]");
+    private final By sevenDay = By.xpath(".//div[@class='Dropdown-option' and text()='семеро суток']");
 
 
     //Цвет самоката - черный
@@ -69,27 +69,24 @@ public class OrderPage {
 
 
     //Комментарий для курьера
-    private final By commentField = By.xpath(".//*[@id=\"root\"]/div/div[2]/div[2]/div[4]/input");
+    private final By commentField = By.xpath(".//input[@placeholder='Комментарий для курьера']");
 
 
     //Заказать
-    private final By orderButtonInForm = By.xpath(".//*[@id=\"root\"]/div/div[2]/div[3]/button[2]");
+    private final By orderButtonInForm = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Заказать']");
 
 
     //Хотите оформить заказ - Да
-    private final By orderButtonTakeYes = By.xpath(".//*[@id=\"root\"]/div/div[2]/div[5]/div[2]/button[2]");
+    private final By orderButtonTakeYes = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Да']");
 
     //Посмотреть статус заказа
-    private final By orderStatusButton = By.xpath(".//*[@id=\"root\"]/div/div[2]/div[5]/div[2]/button");
+    private final By orderStatusButton = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Посмотреть статус']");
 
 
     public OrderPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void waitField() {
-        new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(nameField));
-    }
 
     public boolean actualOrder() {
         new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(orderStatusButton));
@@ -98,6 +95,7 @@ public class OrderPage {
 
 
     public void makeOrderOnePageSocolniki(String name, String surname, String address, String number) {
+        new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(nameField));
         driver.findElement(nameField).click();
         driver.findElement(nameField).sendKeys(name);
         driver.findElement(surnameField).click();
@@ -113,6 +111,7 @@ public class OrderPage {
     }
 
     public void makeOrderOnePageTverskay(String name, String surname, String address, String number) {
+        new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(nameField));
         driver.findElement(nameField).click();
         driver.findElement(nameField).sendKeys(name);
         driver.findElement(surnameField).sendKeys(surname);
