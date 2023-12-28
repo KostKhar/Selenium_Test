@@ -46,3 +46,17 @@ Q.idea/sonarlint/securityhotspotstore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a057
 Q.idea/sonarlint/securityhotspotstore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302,3\0\30205a209c6ce77c4cfc19a09e6f57c588b7fb88
 w
 G.idea/sonarlint/issuestore/9/a/9aa0eded8c5f927793ed77054ccc8214334b31f4,4\d\4d260242f13a51195d426dab6b854aa5f022b322
+R
+"src/main/java/object/HomePage.java,6\1\61560ef6ff204d02c8cf479673a3b8aec1ade57a
+S
+#src/main/java/object/OrderPage.java,c\3\c384f8b69dbc72ff69f5747ccc76f2ca01f2260e
+m
+=src/main/java/ru/qa/scooter/praktikum/services/OrderPage.java,a\d\ade21488ab919fc5d65959d9543d1665f3639741
+l
+<src/main/java/ru/qa/scooter/praktikum/services/HomePage.java,0\2\021ee816b204f6df315a71fe86a54439e504bb5f
+y
+Isrc/main/java/ru/qa/scooter/praktikum/services/page/object/OrderPage.java,1\8\188a522f3c4d33da57f2691420442a48d091445e
+x
+Hsrc/main/java/ru/qa/scooter/praktikum/services/page/object/HomePage.java,c\2\c2351451563e413008808cfc2556d2e1b2e32157
+K
+src/test/java/BaseTest.java,4\3\43e9f450cc1d05e1c35b5c2fa4533e9611ac1276
