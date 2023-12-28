@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class OrderPage {
     private final WebDriver driver;
 
-
     // Имя
     private final By nameField = By.xpath(".//input[@placeholder='* Имя']");
 
@@ -47,10 +46,8 @@ public class OrderPage {
     //24.12.2023
     private final By twentyFourDecember = By.xpath(".//div[@class='react-datepicker__day react-datepicker__day--024 react-datepicker__day--selected react-datepicker__day--weekend']");
 
-
     //Срок аренды
     private final By termField = By.className("Dropdown-placeholder");
-
 
     //сутки
     private final By oneDay = By.xpath(".//div[@class='Dropdown-option' and text()='сутки']");
