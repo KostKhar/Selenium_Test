@@ -2,7 +2,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -10,9 +9,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseTest {
-    protected WebDriver driver;
     // куки
     private final By buttonCookie = By.className("App_CookieButton__3cvqF");
+    protected WebDriver driver;
 
     @Before
     public void startFox() {
@@ -22,7 +21,7 @@ public class BaseTest {
         capabilities.setCapability("marionette", true);
         this.driver = new FirefoxDriver(capabilities);
         this.driver.get("https://qa-scooter.praktikum-services.ru/");
-        new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(buttonCookie));
+        new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(buttonCookie));
         driver.findElement(buttonCookie).click();
     }
 

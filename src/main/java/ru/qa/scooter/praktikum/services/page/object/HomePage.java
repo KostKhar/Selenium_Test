@@ -10,19 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomePage {
-    private  WebDriver driver;
-
     //кнопка заказать верхняя
     private final By orderButton = By.xpath(".//div[@class='Header_Nav__AGCXC']/button[@class='Button_Button__ra12g']");
-
     //кнопка Заказать в середине
     private final By orderMiddleButton = By.xpath(".//div[5]/button");
-
     //Сколько это стоит? И как оплатить?
     private final By howCost = By.xpath(".//*[@id=\"accordion__heading-0\"]");
     //Сутки 400 рублей. Оплата курьеру - наличными или картой.
     private final By itCost = By.xpath(".//*[@id=\"accordion__panel-0\"]/p");
-
     //Хочу сразу несколько самокатов! Так можно?
     private final By howManyToOne = By.xpath(".//*[@id=\"accordion__heading-1\"]");
     //Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.
@@ -47,11 +42,11 @@ public class HomePage {
     private final By orderCancel = By.xpath(".//*[@id=\"accordion__heading-6\"]");
     //Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.
     private final By orderCancelConditions = By.xpath(".//p[text()='Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.']");
-
     //Я жизу за МКАДом, привезёте?
     private final By liveBehind = By.xpath(".//*[@id=\"accordion__heading-7\"]");
     //Да, обязательно. Всем самокатов! И Москве, и Московской области.
     private final By liveInOblast = By.xpath(".//p[text()='Да, обязательно. Всем самокатов! И Москве, и Московской области.']");
+    private final WebDriver driver;
 
 
     public HomePage(WebDriver driver) {
@@ -66,7 +61,7 @@ public class HomePage {
 
     public void clickOrderMiddleButton() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(orderMiddleButton));
-        new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(orderButton));
+        new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(orderButton));
         driver.findElement(orderMiddleButton).click();
     }
 
@@ -89,7 +84,7 @@ public class HomePage {
         answers.add(6, orderCancelConditions);
         questions.add(7, liveBehind);
         answers.add(7, liveInOblast);
-        new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(orderButton));
+        new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(orderButton));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(questions.get(questionIndex)));
         driver.findElement(questions.get(questionIndex)).click();
         return driver.findElement(answers.get(answerIndex)).getText();
